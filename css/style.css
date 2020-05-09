@@ -33,9 +33,7 @@ p {max-width: 30em; }
 
 
 /* SITE-NAV */
-li {
-    list-style: none;
-}
+
 .site-nav ul {
     margin: 0;
     padding: 0;
@@ -46,6 +44,7 @@ li {
 }
 .site-nav li {
     padding: 0 .5em;
+    list-style: none;
 }
 .site-nav a {
     display: block;
@@ -75,7 +74,7 @@ li {
     text-align: center;
     padding: 10% 5%;
     background-color: rgba(0,0,0,.05);
-    margin: -1em 0 0 0;
+    margin: -1em -1em 5em -1em;
 }
 .hero h1,
 .hero h2 {
@@ -140,7 +139,7 @@ li {
 
 .project-items li {
     margin: 1em 0 1em 0;
-    max-width: 180px;
+    width: 160px;
     padding: .5em;
     text-align: center;
 }
@@ -171,3 +170,8 @@ li {
 .styletile { background-image: url('../img/placeholder-styletile-th.gif'); }
 .designmockup { background-image: url('../img/placeholder-designmockup-th.gif'); }
 .codetest { background-image: url('../img/placeholder-codetest-th.gif'); }
+
+#notes {
+    max-width: 1000px;
+    margin: 0 auto;
+}
