@@ -142,6 +142,10 @@ p {max-width: 30em; }
     width: 150px;
     padding: .5em;
     text-align: center;
+
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -.02em;
 }
 
 .project-items li li {
