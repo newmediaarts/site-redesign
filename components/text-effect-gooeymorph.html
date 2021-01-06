@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Animation: Steps</title>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .gooey-text-wrapper *,
+        .gooey-text-wrapper *::before,
+        .gooey-text-wrapper *::after {
+            box-sizing: border-box;
+        }
+
+        .gooey-text-wrapper {
+            background: #000;
+            color: #fff;
+            display: grid;
+            place-items: center;
+            height: 100%;
+            min-height: 100vh;
+        }
+
+        .gooey-text {
+            position: relative;
+            text-align: center;
+            margin: 50% 0 0 0;
+            color: yellow;
+            font-size: 300px;
+            filter: url(#gooey);
+        }
+
+        .gooey-text::before,
+        .gooey-text::after {
+            position: absolute;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            animation-duration: 6s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+            filter: blur(9px);
+        }
+
+        .gooey-text::before {
+            content: "A";
+            animation-name: gooey-text-items-odd;
+        }
+
+        .gooey-text::after {
+            content: "?";
+            animation-name: gooey-text-items-even;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes gooey-text-items-odd {
+            16.6666666667% {
+                opacity: 1;
+            }
+
+            25% {
+                opacity: 1;
+            }
+
+            41.6666666667% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            66.6666666667% {
+                opacity: 1;
+            }
+
+            75% {
+                opacity: 1;
+            }
+
+            91.6666666667% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+
+            0% {
+                content: "N";
+            }
+
+            49.9999% {
+                content: "N";
+            }
+
+            50% {
+                content: "A";
+            }
+
+            99.9999% {
+                content: "A";
+            }
+        }
+
+        @keyframes gooey-text-items-even {
+            16.6666666667% {
+                opacity: 1;
+            }
+
+            25% {
+                opacity: 1;
+            }
+
+            41.6666666667% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            66.6666666667% {
+                opacity: 1;
+            }
+
+            75% {
+                opacity: 1;
+            }
+
+            91.6666666667% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+
+            0% {
+                content: "M";
+            }
+
+            49.9999% {
+                content: "M";
+            }
+
+            50% {
+                content: "?";
+            }
+
+            99.9999% {
+                content: "?";
+            }
+        }
+
+        .gooey-text p {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="gooey-text-wrapper">
+        <div class="gooey-text"></div>
+        <!-- SVG GOOEY FILTER-->
+        <svg>
+            <filter id="gooey">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur"></feGaussianBlur>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 28 -8"
+                    result="gooey"></feColorMatrix>
+                <feComposite in="SourceGraphic" in2="gooey" operator="atop"></feComposite>
+            </filter>
+        </svg>
+        <!-- p New Media Arts-->
+    </div>
+
+</body>
+
+</html>
