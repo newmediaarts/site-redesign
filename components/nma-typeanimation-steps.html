@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMA Type Animation: Steps</title>
+
+    <style>
+        .nma-typeanimationsteps {
+            --nma-tas-bgcolor: #069;
+            background: #000;
+            background: var(--nma-tas-bgcolor);
+            color: #FFFFFF;
+            display: grid;
+            place-items: center;
+            margin: 0;
+            padding: 1em;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        .nma-typeanimationsteps * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1;
+        }
+
+        .nma-typeanimationsteps .nma-typeanimationsteps-words {
+            margin: 0 auto;
+            padding: 80px 100px 180px 0;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 60px;
+            font-size: clamp(30px, 6vw, 60px);
+            font-weight: 900;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            transform: translate3d(0, 0, 0);
+            -webkit-font-smoothing: antialiased;
+            -webkit-font-kerning: normal;
+            -webkit-text-size-adjust: 100%;
+        }
+
+
+        .nma-typeanimationsteps .nma-typeanimationsteps-words-line {
+            height: 53px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(odd) {
+            transform: skew(60deg, -30deg) scaleY(0.66667);
+        }
+
+        .nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(even) {
+            transform: skew(0deg, -30deg) scaleY(1.33333);
+        }
+
+        .nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(1) {
+            left: 0px;
+        }
+
+        .nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(2) {
+            left: 29px;
+        }
+
+        .nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(3) {
+            left: 58px;
+        }
+
+        .nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(4) {
+            left: 87px;
+        }
+
+        .nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(5) {
+            left: 116px;
+        }
+
+        .nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(6) {
+            left: 145px;
+        }
+
+        .nma-typeanimationsteps p {
+            height: 53px;
+            line-height: 48px;
+            padding: 0 10px;
+            transition: all 0.4s ease-in-out;
+            transform: translate3d(0, 0, 0);
+            vertical-align: top;
+            white-space: nowrap;
+            -webkit-animation: 7s ease-in-out infinite nma-typeanimationsteps-stepswitch;
+            animation: 7s ease-in-out infinite nma-typeanimationsteps-stepswitch;
+        }
+
+        @keyframes nma-typeanimationsteps-stepswitch {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            45% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            50% {
+                transform: translate3d(0, -53px, 0);
+            }
+
+            95% {
+                transform: translate3d(0, -53px, 0);
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .nma-typeanimationsteps .nma-typeanimationsteps-words-line {
+                height: 36px;
+            }
+
+            .nma-typeanimationsteps .nma-typeanimationsteps-words {
+                padding-bottom: 150px;
+            }
+        }
+
+
+        /* DEMO-RELATED RESETS */
+        html,
+        body {
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .nma-demo {
+            max-width: 800px;
+            padding: 4em 2em;
+            margin: 0 auto;
+        }
+
+        .nma-demo pre {
+            background: #eee;
+            padding: 1em;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="nma-typeanimationsteps">
+        <ul class="nma-typeanimationsteps-words">
+            <li class="nma-typeanimationsteps-words-line">
+                <p>Take</p>
+                <p>Study</p>
+            </li>
+            <li class="nma-typeanimationsteps-words-line">
+                <p>The</p>
+                <p>Interface</p>
+            </li>
+            <li class="nma-typeanimationsteps-words-line">
+                <p>Next</p>
+                <p>Design</p>
+            </li>
+            <li class="nma-typeanimationsteps-words-line">
+                <p>Step</p>
+                <p>and</p>
+            </li>
+            <li class="nma-typeanimationsteps-words-line">
+                <p>In Your</p>
+                <p>Animation</p>
+            </li>
+            <li class="nma-typeanimationsteps-words-line">
+                <p>Career</p>
+                <p>At KCC</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="nma-demo">
+        <div>NMA COMPONENT DEMO</div>
+        <h1>NMA Type Animation: Steps</h1>
+        <h2><code>.nma-typeanimationsteps</code></h2>
+        <p>An animated text effect that renders two statements as if they were on a staircase.</p>
+
+        <hr />
+
+        <p>HTML:</p>
+        <pre><code>&lt;div class=&quot;nma&#45;typeanimationsteps&quot;&gt;
+    &lt;ul class=&quot;nma&#45;typeanimationsteps&#45;words&quot;&gt;
+        &lt;li class=&quot;nma&#45;typeanimationsteps&#45;words&#45;line&quot;&gt;
+            &lt;p&gt;Take&lt;/p&gt;
+            &lt;p&gt;Study&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;nma&#45;typeanimationsteps&#45;words&#45;line&quot;&gt;
+            &lt;p&gt;The&lt;/p&gt;
+            &lt;p&gt;Interface&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;nma&#45;typeanimationsteps&#45;words&#45;line&quot;&gt;
+            &lt;p&gt;Next&lt;/p&gt;
+            &lt;p&gt;Design&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;nma&#45;typeanimationsteps&#45;words&#45;line&quot;&gt;
+            &lt;p&gt;Step&lt;/p&gt;
+            &lt;p&gt;and&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;nma&#45;typeanimationsteps&#45;words&#45;line&quot;&gt;
+            &lt;p&gt;In Your&lt;/p&gt;
+            &lt;p&gt;Animation&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;nma&#45;typeanimationsteps&#45;words&#45;line&quot;&gt;
+            &lt;p&gt;Career&lt;/p&gt;
+            &lt;p&gt;At KCC&lt;/p&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+        <p>CSS:</p>
+        <pre><code>.nma-typeanimationsteps {
+    --bgcolor: #039;
+    background: #000;
+    background: var(--bgcolor);
+    color: #FFFFFF;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    padding: 1em;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.nma-typeanimationsteps * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1;
+}
+
+.nma-typeanimationsteps .nma-typeanimationsteps-words {
+    margin: 0 auto;
+    padding: 80px 100px 180px 0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 60px;
+    font-size: clamp(30px, 6vw, 60px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    transform: translate3d(0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-kerning: normal;
+    -webkit-text-size-adjust: 100%;
+}
+
+
+.nma-typeanimationsteps .nma-typeanimationsteps-words-line {
+    height: 53px;
+    overflow: hidden;
+    position: relative;
+}
+
+.nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(odd) {
+    transform: skew(60deg, -30deg) scaleY(0.66667);
+}
+
+.nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(even) {
+    transform: skew(0deg, -30deg) scaleY(1.33333);
+}
+
+.nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(1) {
+    left: 0px;
+}
+
+.nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(2) {
+    left: 29px;
+}
+
+.nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(3) {
+    left: 58px;
+}
+
+.nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(4) {
+    left: 87px;
+}
+
+.nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(5) {
+    left: 116px;
+}
+
+.nma-typeanimationsteps .nma-typeanimationsteps-words-line:nth-child(6) {
+    left: 145px;
+}
+
+.nma-typeanimationsteps p {
+    height: 53px;
+    line-height: 48px;
+    padding: 0 10px;
+    transition: all 0.4s ease-in-out;
+    transform: translate3d(0, 0, 0);
+    vertical-align: top;
+    white-space: nowrap;
+    -webkit-animation: 7s ease-in-out infinite nma-typeanimationsteps-stepswitch;
+    animation: 7s ease-in-out infinite nma-typeanimationsteps-stepswitch;
+}
+
+@keyframes nma-typeanimationsteps-stepswitch {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    45% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -53px, 0);
+    }
+
+    95% {
+        transform: translate3d(0, -53px, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (max-width: 767px) {
+    .nma-typeanimationsteps .nma-typeanimationsteps-words-line {
+        height: 36px;
+    }
+
+    .nma-typeanimationsteps .nma-typeanimationsteps-words {
+        padding-bottom: 150px;
+    }
+}</pre></code>
+
+        <p>JS:</p>
+
+        <pre><code>No Javascript required.
+        </pre></code>
+
+
+        <hr />
+
+        <h3>Issues, Future To-do's, &amp; Feature Wish-list:</h3>
+        <ul>
+            <li>Improve the responsive scaling of the type</li>
+            <li>Improve the source markup to be more semantically readable (e.g. with no styling)</li>
+            <li>Get rid of all hard units (e.g. pixels) and substitue in relative units (e.g. ems and vw/vh units)</li>
+        </ul>
+
+        <h3>Dev Log:</h3>
+        <ul>
+            <li>10-26-2022
+                <ul>
+                    <li>Adjusted the type to be responsive on small screens without throwing a scrollbar.</li>
+                    <li>Adjusted the padding (added bottom padding).</li>
+                    <li>Renamed class names with "nma-" prefix.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

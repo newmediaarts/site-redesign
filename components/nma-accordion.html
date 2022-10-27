@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMA Accordion</title>
+
+    <style>
+        /* NMA Accordion */
+        .nma-accordion {
+            --nma-accordion-bgcolor: #069;
+        }
+
+        details {
+            box-sizing: border-box;
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            border-left: 1px solid rgba(0, 0, 0, 0.2);
+            border-right: 1px solid rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 0;
+        }
+
+        .nma-accordion details+details {
+            border-top-width: 0px;
+        }
+
+        .nma-accordion details[open] {
+            transition: all 0.4s ease-out;
+            padding-bottom: 0.5em;
+        }
+
+        .nma-accordion details[open] summary~* {
+            animation: details-fade-trans 0.4s ease-out;
+        }
+
+        @keyframes details-fade-trans {
+            0% {
+                transform: translateY(-10px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+
+        .nma-accordion summary {
+            font-weight: bold;
+            display: block;
+            cursor: pointer;
+            margin: 0;
+            padding: 1em 3em 1em 1em;
+            position: relative;
+        }
+
+        .nma-accordion summary:focus {
+            /* KEEP DEFAULT */
+        }
+
+        .nma-accordion details *:not(summary) {
+            margin-left: 1em;
+            margin-right: 1em;
+        }
+
+        .nma-accordion summary::-moz-list-bullet {
+            list-style-type: none;
+            display: block;
+        }
+
+        .nma-accordion summary::marker,
+        .nma-accordion summary::-webkit-details-marker {
+            color: red;
+        }
+
+        .nma-accordion summary::before {
+            position: absolute;
+            right: 1.5em;
+            transition: all 0.2s ease-out;
+
+            /* Arrow Version */
+            border-right: 2px solid;
+            border-bottom: 2px solid;
+            content: "";
+            width: 8px;
+            height: 8px;
+            top: 1.4em;
+            transform: rotate(45deg) translate(-4px, -4px);
+
+            /* Plus Minus Version   */
+            /*   content: "+"; */
+        }
+
+        .nma-accordion details[open] summary {
+            background-color: rgba(0, 0, 0, 0.02);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .nma-accordion details[open] summary::before {
+            /* Arrow Version   */
+            transform: rotate(225deg);
+
+            /* Plus / Minus Version   
+            content: "|";
+            transform: rotate(-90deg); */
+        }
+
+        /* OPTIONAL LINE IF NO CONTRASTING BG COLOR FOR SUMMARY */
+        /* .nma-accordion details[open] summary::after {
+            content: "";
+            position: absolute;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: block;
+            border-bottom: 1px solid rgba(0,0,0,.1  );
+        } */
+
+        .nma-accordion summary:hover,
+        .nma-accordion summary:focus,
+        .nma-accordion details[open] summary:focus {
+            /* KEEP DEFAULTS */
+        }
+
+        /* SUMMARY HOVER STATE */
+        .nma-accordion summary:hover,
+        .nma-accordion details[open] summary:hover {
+            /* background-color: rgba(0, 51, 153, 1); */
+            background-color: var(--nma-accordion-bgcolor);
+            color: white;
+        }
+
+        /* TEMP FIX FOR SELECTION COLOR */
+        .nma-accordion details *::selection {
+            background-color: transparent;
+        }
+
+
+
+        /* DEMO-RELATED RESETS */
+        html,
+        body {
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .nma-demo {
+            max-width: 800px;
+            padding: 4em 2em;
+            margin: 0 auto;
+        }
+
+        .nma-demo pre {
+            background: #eee;
+            padding: 1em;
+        }
+
+        .nma-demo-optional-wrapper {
+            position: relative;
+            padding: 6em 2em;
+            background-color: #eee;
+        }
+
+        .nma-demo-optional-container {
+            max-width: 800px;
+            padding: 4em;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="nma-demo-optional-wrapper">
+        <div class="nma-demo-optional-container">
+
+            <!-- NMA Accordion -->
+            <div class="nma-accordion">
+                <details>
+                    <summary>Accordion Heading</summary>
+                    <p>Accordion panel content. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque est temporibus animi dolorem velit unde distinctio praesentium explicabo, porro, numquam ex autem necessitatibus excepturi accusamus eius provident reprehenderit commodi illo quo blanditiis ad illum earum obcaecati. Animi, consectetur deserunt illum adipisci atque necessitatibus at id soluta, repellat sed ullam fugit!</p>
+                </details>
+
+                <details open>
+                    <summary>Accordion Heading</summary>
+                    <h4>A List</h4>
+                    <ul>
+                        <li>List Item</li>
+                        <li>List Item</li>
+                        <li>List Item</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>Accordion Heading</summary>
+                    <h4>Heading 4</h4>
+                    <p>Accordion panel content. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque est temporibus animi dolorem velit unde distinctio praesentium explicabo, porro, numquam ex autem necessitatibus excepturi accusamus eius provident reprehenderit commodi illo quo blanditiis ad illum earum obcaecati. Animi, consectetur deserunt illum adipisci atque necessitatibus at id soluta, repellat sed ullam fugit!</p>
+                </details>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="nma-demo">
+        <div>NMA COMPONENT DEMO</div>
+        <h1>NMA Accordion</h1>
+        <h2><code>.nma-accordion</code></h2>
+        <p>A re-usable show/expand accordion UI element.</p>
+
+        <hr />
+
+        <p>HTML:</p>
+        <pre><code>&lt;div class=&quot;nma&#45;accordion&quot;&gt;
+    
+        </code></pre>
+
+        <p>CSS:</p>
+        <pre><code>.nma-accordion {
+}</pre></code>
+
+        <p>JS:</p>
+
+        <pre><code>No Javascript required.
+        </pre></code>
+
+
+        <hr />
+
+        <h3>Issues, Future To-do's, &amp; Feature Wish-list:</h3>
+        <ul>
+            <li>...</li>
+        </ul>
+
+        <h3>Dev Log:</h3>
+        <ul>
+            <li>MM-DD-YYYY
+                <ul>
+                    <li>...</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
