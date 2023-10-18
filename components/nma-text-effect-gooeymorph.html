@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Animation: NMA Gooey Text</title>
+
+    <style>
+        .nma-gooey-text {
+            --nma-gooey-text-bgcolor: #069;
+            --nma-gooey-text-color1: #fff;
+            --nma-gooey-text-color2: #bbee66;
+            --nma-gooey-text-color3: #ffee00;
+            --nma-gooey-text-color4: #ffaa00;
+            --nma-gooey-text-item1: "Change";
+            --nma-gooey-text-item2: "Your";
+            --nma-gooey-text-item3: "Life";
+            --nma-gooey-text-item4: "NMA";
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background: #000;
+            background: var(--nma-tas-bgcolor);
+            color: #FFFFFF;
+            color: var(--nma-gooey-text-color);
+            margin: 0;
+            padding: 30vh 1em;
+            min-height: 20em;
+            overflow-x: hidden;
+            background: var(--nma-gooey-text-bgcolor);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nma-gooey-text-wrapper *,
+        .nma-gooey-text-wrapper *::before,
+        .nma-gooey-text-wrapper *::after {
+            box-sizing: border-box;
+        }
+
+        .nma-gooey-text-items {
+            position: relative;
+            text-align: center;
+            color: var(--nma-gooey-text-color1);
+            font-size: calc(10vw + 10vh);
+            filter: url(#gooey);
+        }
+
+        .nma-gooey-svg {
+            position: absolute;
+        }
+
+        .nma-gooey-text-items::before,
+        .nma-gooey-text-items::after {
+            position: absolute;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            animation-duration: 6s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+            filter: blur(0px);
+        }
+
+        @media (min-width:768px) {
+
+            .nma-gooey-text-items::before,
+            .nma-gooey-text-items::after {
+                filter: blur(4px);
+            }
+        }
+
+        @media (min-width:1024px) {
+
+            .nma-gooey-text-items::before,
+            .nma-gooey-text-items::after {
+                filter: blur(7px);
+            }
+        }
+
+        .nma-gooey-text-items::before {
+            content: "Life";
+            animation-name: gooey-text-items-odd;
+            color: var(--nma-gooey-text-color3);
+        }
+
+        .nma-gooey-text-items::after {
+            content: "NMA";
+            animation-name: gooey-text-items-even;
+            animation-delay: 1.5s;
+            color: var(--nma-gooey-text-color4);
+        }
+
+        @keyframes gooey-text-items-odd {
+            16.6666666667% {
+                opacity: 1;
+                color: var(--nma-gooey-text-color1);
+            }
+
+            25% {
+                opacity: 1;
+            }
+
+            41.6666666667% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            66.6666666667% {
+                opacity: 1;
+            }
+
+            75% {
+                opacity: 1;
+            }
+
+            91.6666666667% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+
+            0% {
+                content: var(--nma-gooey-text-item1);
+            }
+
+            49.9999% {
+                content: var(--nma-gooey-text-item1);
+            }
+
+            50% {
+                content: var(--nma-gooey-text-item3);
+            }
+
+            99.9999% {
+                content: var(--nma-gooey-text-item3);
+            }
+        }
+
+        @keyframes gooey-text-items-even {
+            16.6666666667% {
+                opacity: 1;
+                color: var(--nma-gooey-text-color2);
+            }
+
+            25% {
+                opacity: 1;
+            }
+
+            41.6666666667% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            66.6666666667% {
+                opacity: 1;
+            }
+
+            75% {
+                opacity: 1;
+            }
+
+            91.6666666667% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+
+            0% {
+                content: var(--nma-gooey-text-item2);
+            }
+
+            49.9999% {
+                content: var(--nma-gooey-text-item2);
+            }
+
+            50% {
+                content: var(--nma-gooey-text-item4);
+            }
+
+            99.9999% {
+                content: var(--nma-gooey-text-item4);
+            }
+        }
+
+        .nma-gooey-text-items p {
+            text-align: center;
+        }
+
+        /* DEMO-RELATED RESETS */
+        html,
+        body {
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .nma-demo {
+            max-width: 800px;
+            padding: 4em 2em;
+            margin: 0 auto;
+        }
+
+        .nma-demo pre {
+            background: #eee;
+            padding: 1em;
+        }
+
+        .nma-demo-optional-wrapper {
+            position: relative;
+            padding: 6em 2em;
+            background-color: #eee;
+        }
+
+        .nma-demo-optional-container {
+            max-width: 800px;
+            padding: 4em;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NMA Gooey Text -->
+    <div class="nma-gooey-text">
+        <div class="nma-gooey-text-items"></div>
+        <svg class="nma-gooey-svg">
+            <filter id="gooey">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur"></feGaussianBlur>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 28 -8" result="gooey"></feColorMatrix>
+                <feComposite in="SourceGraphic" in2="gooey" operator="atop"></feComposite>
+            </filter>
+        </svg>
+    </div>
+
+    <div class="nma-demo">
+        <div>NMA COMPONENT DEMO</div>
+        <h1>NMA Gooey Text</h1>
+        <h2><code>.nma-gooey-text</code></h2>
+        <p>Four text items pseudo morphing into one another.</p>
+
+        <hr />
+
+        <p>HTML:</p>
+        <pre><code>&lt;div class="nma-gooey-text"&gt;
+    &lt;div class="nma-gooey-text-items"&gt;&lt;/div&gt;
+    &lt;svg class="nma-gooey-svg"&gt;
+        &lt;filter id="gooey"&gt;
+            &lt;feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur"&gt;
+            &lt;/feGaussianBlur&gt;
+            &lt;feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  
+            0 0 1 0 0  0 0 0 28 -8" result="gooey"&gt;&lt;/feColorMatrix&gt;
+            &lt;feComposite in="SourceGraphic" in2="gooey" operator="atop"&gt;&lt;/feComposite&gt;
+        &lt;/filter&gt;
+    &lt;/svg&gt;
+&lt;/div&gt;</code></pre>
+
+        <p>CSS:</p>
+        <pre><code>.nma-gooey-text {
+    --nma-gooey-text-bgcolor: #069;
+    --nma-gooey-text-color1: #fff;
+    --nma-gooey-text-color2: #bbee66;
+    --nma-gooey-text-color3: #ffee00;
+    --nma-gooey-text-color4: #ffaa00;
+    --nma-gooey-text-item1: "Change";
+    --nma-gooey-text-item2: "Your";
+    --nma-gooey-text-item3: "Life";
+    --nma-gooey-text-item4: "NMA";
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: #000;
+    background: var(--nma-tas-bgcolor);
+    color: #FFFFFF;
+    color: var(--nma-gooey-text-color);
+    margin: 0;
+    padding: 30vh 1em;
+    min-height: 20em;
+    overflow-x: hidden;
+    background: var(--nma-gooey-text-bgcolor);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nma-gooey-text-wrapper *,
+.nma-gooey-text-wrapper *::before,
+.nma-gooey-text-wrapper *::after {
+    box-sizing: border-box;
+}
+
+.nma-gooey-text-items {
+    position: relative;
+    text-align: center;
+    color: var(--nma-gooey-text-color1);
+    font-size: calc(10vw + 10vh);
+    filter: url(#gooey);
+}
+
+.nma-gooey-svg {
+    position: absolute;
+}
+
+.nma-gooey-text-items::before,
+.nma-gooey-text-items::after {
+    position: absolute;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    animation-duration: 6s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    filter: blur(0px);
+}
+
+@media (min-width:768px) {
+
+    .nma-gooey-text-items::before,
+    .nma-gooey-text-items::after {
+        filter: blur(4px);
+    }
+}
+
+@media (min-width:1024px) {
+
+    .nma-gooey-text-items::before,
+    .nma-gooey-text-items::after {
+        filter: blur(7px);
+    }
+}
+
+.nma-gooey-text-items::before {
+    content: "Life";
+    animation-name: gooey-text-items-odd;
+    color: var(--nma-gooey-text-color3);
+}
+
+.nma-gooey-text-items::after {
+    content: "NMA";
+    animation-name: gooey-text-items-even;
+    animation-delay: 1.5s;
+    color: var(--nma-gooey-text-color4);
+}
+
+@keyframes gooey-text-items-odd {
+    16.6666666667% {
+        opacity: 1;
+        color: var(--nma-gooey-text-color1);
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    41.6666666667% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    66.6666666667% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    91.6666666667% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+    0% {
+        content: var(--nma-gooey-text-item1);
+    }
+
+    49.9999% {
+        content: var(--nma-gooey-text-item1);
+    }
+
+    50% {
+        content: var(--nma-gooey-text-item3);
+    }
+
+    99.9999% {
+        content: var(--nma-gooey-text-item3);
+    }
+}
+
+@keyframes gooey-text-items-even {
+    16.6666666667% {
+        opacity: 1;
+        color: var(--nma-gooey-text-color2);
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    41.6666666667% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    66.6666666667% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    91.6666666667% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+    0% {
+        content: var(--nma-gooey-text-item2);
+    }
+
+    49.9999% {
+        content: var(--nma-gooey-text-item2);
+    }
+
+    50% {
+        content: var(--nma-gooey-text-item4);
+    }
+
+    99.9999% {
+        content: var(--nma-gooey-text-item4);
+    }
+}
+
+.nma-gooey-text-items p {
+    text-align: center;
+}</pre></code>
+
+        <p>JS:</p>
+
+        <pre><code>No Javascript required.
+        </pre></code>
+
+
+        <hr />
+
+        <h3>Issues, Future To-do's, &amp; Feature Wish-list:</h3>
+        <ul>
+            <li>Add ability to adjust blue amount (standard deviation) at different screen sizes.</li>
+        </ul>
+
+        <h3>Dev Log:</h3>
+        <ul>
+            <li>11-09-2022
+                <ul>
+                    <li>Made the text responsive</li>
+                    <li>Added support for 4 colors</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
