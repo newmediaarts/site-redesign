@@ -5,3 +5,6 @@ Repo to share in-house updates on the NMA website redesign
 
 ## Archived Links
 [previous site deployed at netlify](https://nma-redesign.netlify.com/)
+
+## Change Log
+- 2/8/24 - troubleshooting github pages site not working
