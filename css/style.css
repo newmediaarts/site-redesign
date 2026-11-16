@@ -183,3 +183,11 @@ p {max-width: 30em; }
     max-width: 1000px;
     margin: 0 auto;
 }
+
+/* fix long wrapping url lines of text */
+.side-by-side a {
+    display: block;
+    word-wrap: break-word;
+    padding: 0 .5em;
+    text-wrap: balance;
+}
